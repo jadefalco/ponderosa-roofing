@@ -2,31 +2,32 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-      <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okanagan Inspired Construction | Luxury Custom Homes</title>
+    <title>Ponderosa Roofing | Trusted Roofing Contractor in Kelowna</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="images/Lakeside Getaway/After - prof web/Living_Space/Draper-livingroom-7.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="images/roof-house-after.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        forest: '#1C2B24',
-                        gold: '#C4B59D',
-                        cream: '#F5F3EF',
-                        charcoal: '#2C2C2C'
+                        brand: '#E63946',
+                        dark: '#0B1220',
+                        slate: '#1F2937',
+                        light: '#F3F4F6',
+                        muted: '#6B7280'
                     },
                     fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
+                        heading: ['Oswald', 'sans-serif'],
                         sans: ['Inter', 'sans-serif'],
                     },
                     letterSpacing: {
@@ -38,31 +39,22 @@
     </script>
 
     <style>
-        html.lenis, html.lenis body {
-            height: auto;
-        }
-        .lenis.lenis-smooth {
-            scroll-behavior: auto !important;
-        }
-       .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
-        }
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
+
         .before-after-slider {
-    position: relative;
-    cursor: ew-resize;
-    contain: layout paint;
-    isolation: isolate;
-    aspect-ratio: 16 / 10;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-}
+            position: relative;
+            cursor: ew-resize;
+            contain: layout paint;
+            isolation: isolate;
+            aspect-ratio: 16 / 10;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
         .before-after-slider > img,
         .before-image img {
             position: absolute;
@@ -78,502 +70,209 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.15), transparent 40%);
+            background: linear-gradient(to top, rgba(0,0,0,0.2), transparent 40%);
             pointer-events: none;
             z-index: 2;
         }
-        .before-image {
-            width: 50%;
-            contain: layout paint;
-        }
-        .slider-line {
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        .before-image { width: 50%; contain: layout paint; }
+        .slider-line { left: 50%; transform: translateX(-50%); }
         .slider-handle {
             left: 50%;
             transform: translate(-50%, -50%);
             transition: box-shadow 0.3s ease;
         }
-        .slider-handle:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        .process-card {
+        .slider-handle:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.25); }
+
+        .service-card {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(145deg, #F9F7F4, #F2EFEA);
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.06);
         }
-        .process-card::before {
+        .service-card::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at top left, rgba(196,181,157,0.15), transparent 60%);
+            background: linear-gradient(135deg, rgba(230,57,70,0.04), transparent 60%);
             opacity: 0;
-            transition: opacity 0.6s ease;
+            transition: opacity 0.5s ease;
         }
-        .process-card:hover::before {
-            opacity: 1;
+        .service-card:hover::before { opacity: 1; }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border-color: rgba(230,57,70,0.2);
         }
-        .process-card:hover {
-            transform: translateY(-12px) scale(1.01);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.08);
-            border-color: rgba(196,181,157,0.4);
-        }
-        .process-card h3 {
-            letter-spacing: 0.05em;
-        }
+        .service-card h3 { letter-spacing: 0.02em; }
+
         .hero-whisper {
-    opacity: 0;
-    transition: opacity 1.8s ease-out;
-}
-.hero-whisper.loaded {
-    opacity: 1;
-}
+            opacity: 0;
+            transition: opacity 1.8s ease-out;
+        }
+        .hero-whisper.loaded { opacity: 1; }
+
         #logo-img {
             transform: translateY(-100px);
             opacity: 0;
-            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-out, filter 0.4s ease;
-            filter: none;
+            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-out;
         }
-        #logo-img.loaded {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        #navbar.scrolled #logo-img {
-            filter: invert(100%);
-        }
+        #logo-img.loaded { transform: translateY(0); opacity: 1; }
+
         @keyframes heroZoomOut {
-            0% { transform: scale(1.15); }
+            0% { transform: scale(1.12); }
             100% { transform: scale(1); }
         }
         .animate-hero-zoom {
-            animation: heroZoomOut 25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: heroZoomOut 20s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .hero-from-top {
             opacity: 0;
             transform: translateY(-60px);
-            transition: all 2.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .hero-from-top.loaded {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .hero-from-top.loaded { opacity: 1; transform: translateY(0); }
         .hero-from-bottom {
             opacity: 0;
             transform: translateY(60px);
-            transition: all 2.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .hero-from-bottom.loaded {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .hero-title-line {
-            display: block;
-            line-height: 1.0;
-            margin-bottom: 0.1em;
-        }
-        .project-card h3 {
-            font-size: 1.25rem;
-        }
-        .lightbox-inner {
-            width: min(90vw, 1000px);
-            height: min(80vh, 700px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        #lightbox-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            max-height: 650px;
-        }
-        .parallax-container {
-            overflow: hidden;
-            position: relative;
-            contain: layout paint;
-            isolation: isolate;
-        }
-        .parallax-img {
-            transform: scale(1.08);
-            transition: transform 0.1s linear;
-        }
-        .project-card {
-            cursor: pointer;
-            overflow: hidden;
-        }
+        .hero-from-bottom.loaded { opacity: 1; transform: translateY(0); }
+
+        .project-card { cursor: pointer; overflow: hidden; }
         .project-card img {
             transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
-            filter: grayscale(20%);
+            filter: contrast(1.05);
         }
-        .project-card:hover img {
-            transform: scale(1.08);
-            filter: grayscale(0%);
-        }
+        .project-card:hover img { transform: scale(1.08); }
         .project-overlay {
-            background: linear-gradient(to top, rgba(28, 43, 36, 0.9) 0%, rgba(28, 43, 36, 0.4) 50%, transparent 100%);
+            background: linear-gradient(to top, rgba(11,18,32,0.92) 0%, rgba(11,18,32,0.5) 50%, transparent 100%);
             transform: translateY(100%);
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .project-card:hover .project-overlay {
-            transform: translateY(0);
-        }
+        .project-card:hover .project-overlay { transform: translateY(0); }
         .project-card .view-btn {
             transform: translateY(20px);
             opacity: 0;
             transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
         }
-        .project-card:hover .view-btn {
-            transform: translateY(0);
-            opacity: 1;
-        }
+        .project-card:hover .view-btn { transform: translateY(0); opacity: 1; }
+
         .reveal {
             opacity: 0;
-            transform: translateY(60px);
-            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
         .stagger-1 { transition-delay: 0.1s; }
         .stagger-2 { transition-delay: 0.2s; }
         .stagger-3 { transition-delay: 0.3s; }
+
         .menu-overlay {
-    right: 0;
-    left: auto;
-    width: 25vw;
-    min-width: 320px;
-    max-width: 420px;
-    background: rgba(28, 43, 36, 0.96);
-    padding: 3rem 3rem;
-    transition:
-        opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        visibility 0.6s;
-}
+            right: 0;
+            left: auto;
+            width: 25vw;
+            min-width: 320px;
+            max-width: 420px;
+            background: rgba(11,18,32,0.98);
+            padding: 3rem 3rem;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+        }
         @media (max-width: 640px) {
-            .menu-overlay {
-                width: 100%;
-                min-width: auto;
-            }
+            .menu-overlay { width: 100%; min-width: auto; }
         }
-        .menu-overlay.hidden-menu {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        .menu-overlay.visible-menu {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: all;
-        }
+        .menu-overlay.hidden-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .menu-overlay.visible-menu { opacity: 1; visibility: visible; pointer-events: all; }
         .menu-item {
             opacity: 0;
             transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .menu-overlay.visible-menu .menu-item {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .menu-overlay.visible-menu .menu-item { opacity: 1; transform: translateY(0); }
         .menu-overlay.visible-menu .menu-item:nth-child(1) { transition-delay: 0.1s; }
         .menu-overlay.visible-menu .menu-item:nth-child(2) { transition-delay: 0.2s; }
         .menu-overlay.visible-menu .menu-item:nth-child(3) { transition-delay: 0.3s; }
         .menu-overlay.visible-menu .menu-item:nth-child(4) { transition-delay: 0.4s; }
         .menu-overlay.visible-menu .menu-item:nth-child(5) { transition-delay: 0.5s; }
-        .hamburger span {
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-            transform: translateX(-10px);
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
+
+        .hamburger span { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
         #navbar.scrolled {
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-        .texture-soft {
-            position: relative;
-            background: linear-gradient(to bottom, #F5F3EF, #F2EFEA);
-        }
-        .texture-soft::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            opacity: 0.03;
-            background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-            z-index: 0;
-        }
-        .texture-soft > * {
-            position: relative;
-            z-index: 1;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F5F3EF;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1C2B24;
-            border-radius: 4px;
-        }
-        .lightbox {
-            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .lightbox.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .lightbox.visible {
-            opacity: 1;
-            pointer-events: all;
-        }
-        .btn-luxury {
+
+        .btn-primary {
             position: relative;
             overflow: hidden;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .btn-luxury::before {
+        .btn-primary::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.5s;
         }
-        .btn-luxury:hover::before {
-            left: 100%;
+        .btn-primary:hover::before { left: 100%; }
+
+        .lightbox { transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .lightbox.hidden { opacity: 0; pointer-events: none; }
+        .lightbox.visible { opacity: 1; pointer-events: all; }
+        .lightbox-inner {
+            width: min(90vw, 1100px);
+            height: min(80vh, 750px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        /* ============================================
-   MOBILE OPTIMIZATION LAYER
-   (Desktop stays unchanged)
-============================================ */
+        #lightbox-img { width: 100%; height: 100%; object-fit: contain; max-height: 680px; }
 
-@media (max-width: 768px) {
+        .parallax-container { overflow: hidden; position: relative; contain: layout paint; isolation: isolate; }
+        .parallax-img { transform: scale(1.08); transition: transform 0.1s linear; }
 
-    /* General spacing */
-    section {
-        padding-top: 5rem !important;
-        padding-bottom: 5rem !important;
-    }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F3F4F6; }
+        ::-webkit-scrollbar-thumb { background: #0B1220; border-radius: 4px; }
 
-    .max-w-7xl,
-    .max-w-6xl,
-    .max-w-5xl,
-    .max-w-4xl {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-    /* Before/After slider */
-    .before-after-slider {
-        aspect-ratio: 16 / 12.5;  /* 25% taller than desktop */
-        max-width: none;         /* fill the padded container */
-    }
-
-    .slider-handle {
-        width: 42px;
-        height: 42px;
-    }
-    /* Navigation */
-    #navbar .py-6 {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-
-    #logo-img {
-        height: 42px !important;
-    }
-
-    /* Mobile menu */
-    .menu-overlay {
-        width: 100vw;
-        padding: 5rem 2rem 3rem;
-    }
-
-    .menu-overlay ul {
-        gap: 1.5rem;
-    }
-
-    .menu-overlay a {
-        font-size: 2.5rem !important;
-        line-height: 1.1;
-    }
-
-    /* Hero section */
-    #home {
-        min-height: 100svh;
-    }
-
-    .hero-title-line {
-        line-height: 0.95;
-    }
-
-    #home h1 {
-        font-size: clamp(3rem, 12vw, 4.5rem) !important;
-        letter-spacing: -0.03em;
-    }
-
-    #home p {
-        font-size: 1rem !important;
-        line-height: 1.7;
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #home .mb-14 {
-        margin-bottom: 2rem !important;
-    }
-
-    #home .mb-12 {
-        margin-bottom: 1.75rem !important;
-    }
-
-    #home a {
-        padding: 0.95rem 2rem;
-        font-size: 0.7rem;
-        letter-spacing: 0.18em;
-    }
-
-    /* Section headings */
-    h2 {
-        line-height: 1.1 !important;
-    }
-
-    .font-serif.text-4xl,
-    .font-serif.text-5xl,
-    .font-serif.text-6xl {
-        font-size: clamp(2.2rem, 8vw, 3.2rem) !important;
-    }
-
-    /* Body text */
-    .text-lg {
-        font-size: 1rem !important;
-        line-height: 1.8;
-    }
-
-   
-
-    /* Project cards */
-    .project-card h3 {
-        font-size: 1.6rem !important;
-    }
-
-    .project-card .mt-8 {
-        margin-top: 1.25rem !important;
-    }
-
-    /* Process cards */
-    .process-card {
-        padding: 2rem !important;
-    }
-
-    .process-card p {
-        font-size: 0.95rem;
-        line-height: 1.75;
-    }
-
-    /* About stats */
-    #about .grid-cols-3 {
-        gap: 1rem;
-    }
-
-    #about .font-serif.text-5xl {
-        font-size: 2.2rem !important;
-    }
-
-    /* Testimonials */
-    .text-xl {
-        font-size: 1.1rem !important;
-        line-height: 1.8;
-    }
-
-    /* Contact section */
-    #contact h2 {
-        font-size: clamp(2.4rem, 9vw, 3.5rem) !important;
-    }
-
-    #contact .space-y-8 {
-        gap: 1.5rem;
-    }
-
-    #contact .w-14.h-14 {
-        width: 3rem;
-        height: 3rem;
-    }
-
-    #contact .text-xl {
-        font-size: 1rem !important;
-    }
-
-    /* Form fields */
-    input,
-    textarea,
-    select {
-        font-size: 16px !important;
-        padding: 1rem !important;
-    }
-
-    textarea {
-        min-height: 140px;
-    }
-
-    button[type="submit"] {
-        padding-top: 1rem !important;
-        padding-bottom: 1rem !important;
-    }
-
-    /* Footer */
-    footer {
-        padding-top: 4rem !important;
-        padding-bottom: 4rem !important;
-    }
-
-    footer .font-serif {
-        font-size: 1.8rem !important;
-    }
-
-    /* Reduce animation intensity on mobile */
-    .project-card:hover img,
-    .process-card:hover {
-        transform: none !important;
-    }
-
-    .animate-hero-zoom {
-        animation-duration: 18s;
-    }
-
-    /* Better reveal animations on mobile */
-    .reveal {
-        transform: translateY(30px);
-    }
-}
+        @media (max-width: 768px) {
+            section { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
+            .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .before-after-slider { aspect-ratio: 16 / 12.5; max-width: none; }
+            .slider-handle { width: 44px; height: 44px; }
+            #navbar .py-6 { padding-top: 1rem; padding-bottom: 1rem; }
+            #logo-img { height: 56px !important; }
+            .menu-overlay { width: 100vw; padding: 5rem 2rem 3rem; }
+            .menu-overlay a { font-size: 2.2rem !important; }
+            #home { min-height: 100svh; }
+            #home h1 { font-size: clamp(2.4rem, 10vw, 3.6rem) !important; }
+            #home p { font-size: 1rem !important; }
+            .font-heading.text-5xl, .font-heading.text-6xl, .font-heading.text-7xl { font-size: clamp(2rem, 7vw, 2.8rem) !important; }
+            .project-card h3 { font-size: 1.3rem !important; }
+            .service-card { padding: 1.75rem !important; }
+            input, textarea, select { font-size: 16px !important; padding: 1rem !important; }
+            textarea { min-height: 130px; }
+            button[type="submit"] { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+            footer { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+            .reveal { transform: translateY(30px); }
+        }
     </style>
 </head>
-<body class="font-sans text-charcoal bg-white antialiased selection:bg-forest selection:text-white">
+<body class="font-sans text-slate bg-white antialiased selection:bg-brand selection:text-white">
 
     <!-- Navigation -->
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out bg-transparent">
-        <div class="w-full px-6 lg:px-12 py-6 flex items-center justify-between">
-            <a href="#home" class="font-serif text-2xl lg:text-3xl font-medium tracking-tight text-white transition-colors duration-300" id="logo-text">
-                <img
-   id="logo-img" 
-                     src="images/logo.png"
-                     alt="Okanagan Inspired Construction Logo" 
-                     class="h-12 lg:h-16 w-auto mr-2 inline-block align-middle object-contain">
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out bg-transparent">
+        <div class="w-full px-6 lg:px-12 py-4 lg:py-5 flex items-center justify-between">
+            <a href="#home" class="transition-colors duration-300" id="logo-text">
+                <img id="logo-img" src="images/logo.png" alt="Ponderosa Roofing Logo" class="h-20 lg:h-32 w-auto object-contain">
             </a>
-            
+
             <button id="menu-toggle" class="hamburger relative w-8 h-6 flex flex-col justify-between items-end z-50 group cursor-pointer">
                 <span class="block w-full h-0.5 bg-white transition-colors duration-300" id="hamburger-line"></span>
                 <span class="block w-full h-0.5 bg-white transition-colors duration-300" id="hamburger-line-2"></span>
@@ -583,564 +282,666 @@
     </header>
 
     <!-- Full Screen Menu -->
-    <div id="menu-overlay" class="menu-overlay hidden-menu fixed top-0 right-0 bottom-0 z-40 bg-forest flex items-center justify-start">
-    <nav class="text-left w-full">
-            <ul class="space-y-8">
-                <li class="menu-item">
-                    <a href="index.html" class="font-serif text-2xl lg:text-4xl text-white hover:text-gold transition-colors duration-300" onclick="closeMenu()">Home</a>
-                </li>
-                <li class="menu-item">
-                    <a href="about.html" class="font-serif text-2xl lg:text-4xl text-white hover:text-gold transition-colors duration-300" onclick="closeMenu()">About</a>
-                </li>
-                <li class="menu-item">
-                    <a href="faq.html" class="font-serif text-2xl lg:text-4xl text-white hover:text-gold transition-colors duration-300" onclick="closeMenu()">FAQ</a>
-                </li>
-                <li class="menu-item">
-                    <a href="index.html#projects" class="font-serif text-2xl lg:text-4xl text-white hover:text-gold transition-colors duration-300" onclick="closeMenu()">Projects</a>
-                </li>
-                <li class="menu-item">
-                    <a href="index.html#contact" class="font-serif text-2xl lg:text-4xl text-white hover:text-gold transition-colors duration-300" onclick="closeMenu()">Contact</a>
-                </li>
+    <div id="menu-overlay" class="menu-overlay hidden-menu fixed top-0 right-0 bottom-0 z-40 flex items-center justify-start">
+        <nav class="text-left w-full">
+            <ul class="space-y-6">
+                <li class="menu-item"><a href="index.html" class="font-heading text-2xl lg:text-4xl text-white hover:text-brand transition-colors duration-300 uppercase" onclick="closeMenu()">Home</a></li>
+                <li class="menu-item"><a href="index.html#services" class="font-heading text-2xl lg:text-4xl text-white hover:text-brand transition-colors duration-300 uppercase" onclick="closeMenu()">Services</a></li>
+                <li class="menu-item"><a href="index.html#projects" class="font-heading text-2xl lg:text-4xl text-white hover:text-brand transition-colors duration-300 uppercase" onclick="closeMenu()">Projects</a></li>
+                <li class="menu-item"><a href="index.html#why-us" class="font-heading text-2xl lg:text-4xl text-white hover:text-brand transition-colors duration-300 uppercase" onclick="closeMenu()">Why Us</a></li>
+                <li class="menu-item"><a href="index.html#contact" class="font-heading text-2xl lg:text-4xl text-white hover:text-brand transition-colors duration-300 uppercase" onclick="closeMenu()">Contact</a></li>
             </ul>
         </nav>
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="relative h-screen w-full overflow-hidden">
+    <section id="home" class="relative min-h-screen w-full overflow-hidden flex items-center">
         <div class="absolute inset-0 w-full h-full overflow-hidden">
-            <img
-            id="hero-bg" 
-                 src="images/Lakeside Getaway/After - prof web/Living_Space/Draper-livingroom-7.jpg" 
-                 alt="Luxury Okanagan Home" 
-                 class="w-full h-full object-cover animate-hero-zoom brightness-[1.08]">    
-            <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/55"></div>
+            <img id="hero-bg" src="images/roof-house-after.jpg" alt="Roofing crew installing shingles" class="w-full h-full object-cover animate-hero-zoom">
+            <div class="absolute inset-0 bg-gradient-to-r from-dark/90 via-dark/70 to-dark/40"></div>
         </div>
 
-        <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
-            <div class="hero-from-top mb-6">
-                <p class="text-white/85 text-lg tracking-[0.3em] uppercase font-medium drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-                    Okanagan Inspired Construction
-                </p>
-                <div class="w-12 h-[1px] bg-gold mt-3 mx-auto opacity-70"></div>
-            </div>
-
-            <h1 class="font-serif text-5xl lg:text-7xl xl:text-8xl text-white font-medium mb-14 max-w-5xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
-    <span class="hero-title-line hero-from-top">From Vision</span>
-    <span class="hero-title-line hero-from-bottom">To Reality</span>
-</h1>
-            
-            <p class="hero-from-bottom text-white text-lg lg:text-xl font-normal max-w-2xl mb-12 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-                Renovations & Additions in the Okanagan<br>
-                Transforming homes with craftsmanship, clarity, and a team you can trust.
-            </p>
-            
-            <a href="#projects" class="hero-from-bottom inline-block px-10 py-4 border border-white text-white hover:bg-white hover:text-forest transition-all duration-500 text-xs tracking-[0.2em] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]">
-                View Our Work
-            </a>
-        </div>
-
-        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce opacity-0 transition-opacity duration-1000 delay-1000" id="scroll-indicator">
-            <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
-
-                              <!-- Trust Stats - ghost whisper -->
-                       <div class="hero-whisper absolute bottom-8 left-0 right-0 z-20 text-center">
-                <p class="text-[11px] text-white/40 tracking-[0.25em] uppercase font-light">
-                    25 years of Okanagan craftsmanship
-                </p>
-            </div>
-    
-    </section>
-
-         
-
-    <!-- Before & After Slider -->
-    <section class="py-32 lg:py-40 bg-white">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="text-gold text-xs tracking-[0.3em] uppercase mb-6 font-medium">Transformations</p>
-            <h2 class="font-serif text-4xl lg:text-6xl text-forest font-medium mb-10">
-                Before & After
-            </h2>
-            <p class="text-charcoal/60 font-light text-lg max-w-2xl mx-auto mb-20">
-                Drag to explore the transformation.
-            </p>
-
-            <div class="reveal w-full max-w-5xl mx-auto">
-                <div class="before-after-slider relative overflow-hidden rounded-[28px] shadow-2xl">    
-                    <img
-  loading="lazy" src="images/Lakeside Getaway/After - prof web/Exterior/Draper-exterior-5.jpg" alt="Exterior after renovation" class="select-none">
-                    <div class="before-image absolute inset-0 overflow-hidden">
-                        <img
-  loading="lazy" src="images/Lakeside Getaway/Orginal Photos/Finch1.jpg" alt="Exterior before renovation" class="select-none">
+        <div class="relative z-10 w-full px-6 lg:px-12 pt-36 pb-20 lg:pt-44 lg:pb-24">
+            <div class="max-w-7xl mx-auto">
+                <div class="max-w-3xl">
+                    <div class="hero-from-top mb-6">
+                        <span class="inline-block bg-brand/90 text-white text-xs font-bold tracking-[0.2em] uppercase px-4 py-2 mb-6">
+                            Kelowna's Roofing Experts
+                        </span>
                     </div>
-                    <div class="absolute top-4 left-4 text-white text-xs tracking-wider bg-black/40 px-3 py-1 backdrop-blur-sm">
-                        Before
+
+                    <h1 class="font-heading text-5xl lg:text-7xl xl:text-8xl text-white font-bold uppercase leading-[0.95] mb-8">
+                        <span class="hero-from-top block">Reliable Roofing</span>
+                        <span class="hero-from-bottom block">Done Right</span>
+                    </h1>
+
+                    <p class="hero-from-bottom text-white/90 text-lg lg:text-xl font-normal max-w-xl mb-10 leading-relaxed">
+                        Professional roof repairs, replacements, and installations for homes and businesses throughout the Okanagan. Free estimates, quality materials, and work you can trust.
+                    </p>
+
+                    <div class="hero-from-bottom flex flex-col sm:flex-row items-start gap-4 mb-14">
+                        <a href="#contact" class="btn-primary inline-block px-10 py-4 bg-brand text-white font-semibold text-sm tracking-[0.15em] uppercase shadow-lg hover:bg-red-700">
+                            Request a Free Estimate
+                        </a>
+                        <a href="tel:236-599-0058" class="btn-primary inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white font-semibold text-sm tracking-[0.15em] uppercase hover:bg-white hover:text-dark">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            (236) 599-0058
+                        </a>
                     </div>
-                    <div class="absolute top-4 right-4 text-white text-xs tracking-wider bg-black/40 px-3 py-1 backdrop-blur-sm">
-                        After
-                    </div>
-                    <div class="slider-line absolute top-0 bottom-0 w-[2px] bg-white shadow-lg"></div>
-                    <div class="slider-handle absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-xl flex items-center justify-center cursor-ew-resize">
-                        <div class="w-4 h-4 border-l-2 border-r-2 border-forest"></div>
+
+                    <!-- Trust Badges -->
+                    <div class="hero-from-bottom grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl">
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/10 px-4 py-3">
+                            <svg class="w-6 h-6 text-brand flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                            <span class="text-white text-sm font-semibold uppercase tracking-wide">Fully Insured</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/10 px-4 py-3">
+                            <svg class="w-6 h-6 text-brand flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                            </svg>
+                            <span class="text-white text-sm font-semibold uppercase tracking-wide">Free Estimates</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/10 px-4 py-3">
+                            <svg class="w-6 h-6 text-brand flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                            <span class="text-white text-sm font-semibold uppercase tracking-wide">Workmanship Warranty</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/10 px-4 py-3">
+                            <svg class="w-6 h-6 text-brand flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                            </svg>
+                            <span class="text-white text-sm font-semibold uppercase tracking-wide">Residential &amp; Commercial</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="mt-8 text-left max-w-2xl mx-auto">
-                <h3 class="font-serif text-2xl text-forest mb-2">Lakeside Getaway</h3>
-                <p class="text-charcoal/60 font-light leading-relaxed">
-                    A full interior and exterior transformation of a 1990s Okanagan lake home — reimagined into a refined family retreat with custom architectural details, reclaimed 19th-century barn wood, and Hampton-inspired design.
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-0 transition-opacity duration-1000 delay-1000" id="scroll-indicator">
+            <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <p class="text-brand text-sm font-bold tracking-[0.2em] uppercase mb-4">Our Services</p>
+                <h2 class="font-heading text-4xl lg:text-6xl text-dark font-bold uppercase leading-tight mb-6">
+                    Full-Service Roofing Contractor
+                </h2>
+                <p class="text-muted text-lg leading-relaxed">
+                    From emergency leak repairs to complete re-roofs, we handle residential and commercial roofing projects of every size.
                 </p>
-                <div class="mt-6 border-l border-gold pl-6">
-                    <p class="text-sm tracking-wide uppercase text-gold mb-2">Design Detail</p>
-                    <p class="text-charcoal/60 font-light italic leading-relaxed">
-                        The architecture of the home was designed around the timeless proportions of the golden ratio — creating balance, harmony, and visual elegance throughout the space.
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Residential Roofing -->
+                <div class="service-card reveal group p-8 rounded-lg transition-all duration-500">
+                    <div class="mb-6 w-14 h-14 bg-brand/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Residential Roofing</h3>
+                    <p class="text-muted font-light leading-relaxed">
+                        Asphalt shingle, architectural, and premium roofing systems installed to protect your home and family.
+                    </p>
+                </div>
+
+                <!-- Commercial Roofing -->
+                <div class="service-card reveal stagger-1 group p-8 rounded-lg transition-all duration-500">
+                    <div class="mb-6 w-14 h-14 bg-brand/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Commercial Roofing</h3>
+                    <p class="text-muted font-light leading-relaxed">
+                        Flat roofs, membrane systems, and low-slope solutions built for durability and long-term performance.
+                    </p>
+                </div>
+
+                <!-- Roof Repairs -->
+                <div class="service-card reveal stagger-2 group p-8 rounded-lg transition-all duration-500">
+                    <div class="mb-6 w-14 h-14 bg-brand/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Roof Repairs</h3>
+                    <p class="text-muted font-light leading-relaxed">
+                        Fast, dependable fixes for leaks, storm damage, missing shingles, and flashing problems.
+                    </p>
+                </div>
+
+                <!-- Re-Roofing -->
+                <div class="service-card reveal group p-8 rounded-lg transition-all duration-500">
+                    <div class="mb-6 w-14 h-14 bg-brand/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Re-Roofing</h3>
+                    <p class="text-muted font-light leading-relaxed">
+                        Complete tear-offs and replacements with quality materials, proper ventilation, and a clean jobsite.
+                    </p>
+                </div>
+
+                <!-- Gutters & Drainage -->
+                <div class="service-card reveal stagger-1 group p-8 rounded-lg transition-all duration-500">
+                    <div class="mb-6 w-14 h-14 bg-brand/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Gutters &amp; Drainage</h3>
+                    <p class="text-muted font-light leading-relaxed">
+                        Seamless gutter installation and repairs to protect your roof, siding, and foundation from water damage.
+                    </p>
+                </div>
+
+                <!-- Inspections -->
+                <div class="service-card reveal stagger-2 group p-8 rounded-lg transition-all duration-500">
+                    <div class="mb-6 w-14 h-14 bg-brand/10 rounded-lg flex items-center justify-center">
+                        <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Roof Inspections</h3>
+                    <p class="text-muted font-light leading-relaxed">
+                        Detailed assessments with honest recommendations so you know exactly what your roof needs.
                     </p>
                 </div>
             </div>
+
+            <div class="mt-16 text-center reveal">
+                <a href="#contact" class="btn-primary inline-block px-10 py-4 bg-brand text-white font-semibold text-sm tracking-[0.15em] uppercase shadow-lg hover:bg-red-700">
+                    Get a Free Roofing Estimate
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Featured Projects (Only 2) -->
-    <section id="projects" class="py-32 lg:py-40 texture-soft">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col lg:flex-row justify-between items-end mb-20 reveal">
+    <!-- Before & After Section -->
+    <section class="py-24 lg:py-32 bg-light">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14 reveal">
+                <p class="text-brand text-sm font-bold tracking-[0.2em] uppercase mb-4">Real Results</p>
+                <h2 class="font-heading text-4xl lg:text-6xl text-dark font-bold uppercase leading-tight mb-6">
+                    Before &amp; After Roof Replacements
+                </h2>
+                <p class="text-muted text-lg max-w-2xl mx-auto">
+                    Drag the slider to see the transformation from worn, damaged roofing to a clean, durable new roof.
+                </p>
+            </div>
+
+            <div class="reveal">
+                <div class="before-after-slider relative overflow-hidden rounded-lg shadow-2xl">
+                    <img loading="lazy" src="images/after.png" alt="New shingle roof installation" class="select-none">
+                    <div class="before-image absolute inset-0 overflow-hidden">
+                        <img loading="lazy" src="images/before.png" alt="Roof before replacement" class="select-none">
+                    </div>
+                    <div class="absolute top-4 left-4 text-white text-xs font-bold tracking-wider bg-brand px-3 py-1 uppercase">
+                        Before
+                    </div>
+                    <div class="absolute top-4 right-4 text-white text-xs font-bold tracking-wider bg-dark px-3 py-1 uppercase">
+                        After
+                    </div>
+                    <div class="slider-line absolute top-0 bottom-0 w-[3px] bg-white shadow-lg"></div>
+                    <div class="slider-handle absolute top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center cursor-ew-resize border-4 border-brand">
+                        <svg class="w-5 h-5 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center reveal">
                 <div>
-                    <p class="text-gold text-xs tracking-[0.3em] uppercase mb-4 font-medium">Our Work</p>
-                    <h2 class="font-serif text-4xl lg:text-6xl text-forest font-medium leading-tight">
-                        Renovations & Transformations
+                    <p class="font-heading text-4xl text-brand font-bold">500+</p>
+                    <p class="text-muted font-light mt-2">Roofs Completed</p>
+                </div>
+                <div>
+                    <p class="font-heading text-4xl text-brand font-bold">10+</p>
+                    <p class="text-muted font-light mt-2">Years Experience</p>
+                </div>
+                <div>
+                    <p class="font-heading text-4xl text-brand font-bold">100%</p>
+                    <p class="text-muted font-light mt-2">Satisfaction Focused</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 lg:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <p class="text-brand text-sm font-bold tracking-[0.2em] uppercase mb-4">Customer Reviews</p>
+                <h2 class="font-heading text-4xl lg:text-6xl text-dark font-bold uppercase leading-tight">
+                    Trusted by Homeowners
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="reveal bg-light p-8 lg:p-10 rounded-lg border-l-4 border-brand">
+                    <div class="flex gap-1 mb-6">
+                        <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-slate text-lg lg:text-xl font-light leading-relaxed mb-6">
+                        "Ponderosa Roofing replaced our entire roof in just a few days. The crew was professional, the cleanup was spotless, and the new roof looks great."
+                    </p>
+                    <p class="text-dark font-semibold uppercase tracking-wide text-sm">— Homeowner, Kelowna</p>
+                </div>
+
+                <div class="reveal stagger-1 bg-light p-8 lg:p-10 rounded-lg border-l-4 border-brand">
+                    <div class="flex gap-1 mb-6">
+                        <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-brand" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-slate text-lg lg:text-xl font-light leading-relaxed mb-6">
+                        "They found the leak that two other companies missed and fixed it quickly. Honest pricing, fast service, and a team I could trust on my property."
+                    </p>
+                    <p class="text-dark font-semibold uppercase tracking-wide text-sm">— Property Manager, West Kelowna</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prominent CTA Banner -->
+    <section class="py-16 lg:py-20 bg-brand">
+        <div class="max-w-5xl mx-auto px-6 text-center reveal">
+            <h2 class="font-heading text-3xl lg:text-5xl text-white font-bold uppercase leading-tight mb-6">
+                Ready for a Roof You Can Trust?
+            </h2>
+            <p class="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
+                Get a free, no-obligation estimate today. We respond fast and start sooner.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="btn-primary inline-block px-10 py-4 bg-white text-brand font-bold text-sm tracking-[0.15em] uppercase shadow-lg hover:bg-light">
+                    Request a Free Estimate
+                </a>
+                <a href="tel:236-599-0058" class="btn-primary inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white font-bold text-sm tracking-[0.15em] uppercase hover:bg-white hover:text-brand">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    Call (236) 599-0058
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 lg:py-32 bg-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-14 reveal">
+                <div class="max-w-2xl">
+                    <p class="text-brand text-sm font-bold tracking-[0.2em] uppercase mb-4">Recent Work</p>
+                    <h2 class="font-heading text-4xl lg:text-6xl text-dark font-bold uppercase leading-tight">
+                        Roofing Projects in the Okanagan
                     </h2>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Lakeside Getaway -->
-                <div class="reveal project-card group" onclick="window.location.href='projects/lakeside-getaway.html'">
-                    <div class="parallax-container relative aspect-[4/3] overflow-hidden">
-                        <img
-  loading="lazy" src="images/Lakeside Getaway/After - prof web/Highlights/Draper-livingroom-6.jpg" 
-                             alt="Lakeside Getaway" 
-                             class="parallax-img w-full h-full object-cover">
-                        <div class="project-overlay absolute inset-0 flex flex-col items-center justify-end pb-12">
-                            <span class="view-btn text-white text-xs tracking-[0.2em] uppercase border border-white/50 px-8 py-3 backdrop-blur-sm hover:bg-white hover:text-forest transition-all duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="reveal project-card group" onclick="openLightbox(0)">
+                    <div class="parallax-container relative aspect-[4/3] overflow-hidden rounded-lg">
+                        <img loading="lazy" src="images/roof-project-1.jpg" alt="Roof replacement in progress" class="parallax-img w-full h-full object-cover">
+                        <div class="project-overlay absolute inset-0 flex flex-col items-center justify-end pb-10">
+                            <span class="view-btn text-white text-xs font-bold tracking-[0.2em] uppercase border-2 border-white px-8 py-3 hover:bg-white hover:text-dark transition-all duration-300">
                                 View Project
                             </span>
                         </div>
                     </div>
-                    <div class="mt-8">
-                        <h3 class="font-serif text-2xl text-forest mb-2">Lakeside Getaway</h3>
-                        <p class="text-charcoal/60 font-light text-sm tracking-wide">Full Renovation & Addition • Okanagan Lake</p>
+                    <div class="mt-5">
+                        <h3 class="font-heading text-xl text-dark font-bold uppercase">Historic Home Re-Roof</h3>
+                        <p class="text-muted text-sm mt-1">Complete tear-off & replacement</p>
                     </div>
                 </div>
 
-                <!-- Mediterranean Cliffside -->
-                <div class="reveal stagger-1 project-card group" onclick="window.location.href='projects/mediterranean-cliffside.html'">
-                    <div class="parallax-container relative aspect-[4/3] overflow-hidden">
-                        <img
-  
-  loading="lazy" src="images/Med Cliffside/Exterior/show3993446.jpg" 
-                             alt="Mediterranean Cliffside" 
-                             class="parallax-img w-full h-full object-cover">
-                        <div class="project-overlay absolute inset-0 flex flex-col items-center justify-end pb-12">
-                            <span class="view-btn text-white text-xs tracking-[0.2em] uppercase border border-white/50 px-8 py-3 backdrop-blur-sm hover:bg-white hover:text-forest transition-all duration-300">
+                <div class="reveal stagger-1 project-card group" onclick="openLightbox(1)">
+                    <div class="parallax-container relative aspect-[4/3] overflow-hidden rounded-lg">
+                        <img loading="lazy" src="images/roof-house-after.jpg" alt="Professional shingle installation" class="parallax-img w-full h-full object-cover">
+                        <div class="project-overlay absolute inset-0 flex flex-col items-center justify-end pb-10">
+                            <span class="view-btn text-white text-xs font-bold tracking-[0.2em] uppercase border-2 border-white px-8 py-3 hover:bg-white hover:text-dark transition-all duration-300">
                                 View Project
                             </span>
                         </div>
                     </div>
-                    <div class="mt-8">
-                        <h3 class="font-serif text-2xl text-forest mb-2">Mediterranean Cliffside</h3>
-                        <p class="text-charcoal/60 font-light text-sm tracking-wide">Custom Luxury Build • Okanagan Cliffside</p>
+                    <div class="mt-5">
+                        <h3 class="font-heading text-xl text-dark font-bold uppercase">Shingle Installation</h3>
+                        <p class="text-muted text-sm mt-1">New architectural shingles</p>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-2 project-card group" onclick="openLightbox(2)">
+                    <div class="parallax-container relative aspect-[4/3] overflow-hidden rounded-lg">
+                        <img loading="lazy" src="images/roof-shingles-close.jpg" alt="Detail of installed roof shingles" class="parallax-img w-full h-full object-cover">
+                        <div class="project-overlay absolute inset-0 flex flex-col items-center justify-end pb-10">
+                            <span class="view-btn text-white text-xs font-bold tracking-[0.2em] uppercase border-2 border-white px-8 py-3 hover:bg-white hover:text-dark transition-all duration-300">
+                                View Project
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="font-heading text-xl text-dark font-bold uppercase">Premium Shingle Roof</h3>
+                        <p class="text-muted text-sm mt-1">Detailed craftsmanship</p>
+                    </div>
+                </div>
+
+                <div class="reveal project-card group" onclick="openLightbox(3)">
+                    <div class="parallax-container relative aspect-[4/3] overflow-hidden rounded-lg">
+                        <img loading="lazy" src="images/roof-inspection.jpg" alt="Roof inspection on commercial building" class="parallax-img w-full h-full object-cover">
+                        <div class="project-overlay absolute inset-0 flex flex-col items-center justify-end pb-10">
+                            <span class="view-btn text-white text-xs font-bold tracking-[0.2em] uppercase border-2 border-white px-8 py-3 hover:bg-white hover:text-dark transition-all duration-300">
+                                View Project
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="font-heading text-xl text-dark font-bold uppercase">Commercial Inspection</h3>
+                        <p class="text-muted text-sm mt-1">Safety-first assessment</p>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-1 project-card group" onclick="openLightbox(4)">
+                    <div class="parallax-container relative aspect-[4/3] overflow-hidden rounded-lg">
+                        <img loading="lazy" src="images/roof-completed-2.jpg" alt="Completed residential roof" class="parallax-img w-full h-full object-cover">
+                        <div class="project-overlay absolute inset-0 flex flex-col items-center justify-end pb-10">
+                            <span class="view-btn text-white text-xs font-bold tracking-[0.2em] uppercase border-2 border-white px-8 py-3 hover:bg-white hover:text-dark transition-all duration-300">
+                                View Project
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="font-heading text-xl text-dark font-bold uppercase">Completed Residential Roof</h3>
+                        <p class="text-muted text-sm mt-1">Full replacement & cleanup</p>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-2 project-card group" onclick="openLightbox(5)">
+                    <div class="parallax-container relative aspect-[4/3] overflow-hidden rounded-lg">
+                        <img loading="lazy" src="images/roof-crew-wide.jpg" alt="Roofer installing shingles with nail gun" class="parallax-img w-full h-full object-cover">
+                        <div class="project-overlay absolute inset-0 flex flex-col items-center justify-end pb-10">
+                            <span class="view-btn text-white text-xs font-bold tracking-[0.2em] uppercase border-2 border-white px-8 py-3 hover:bg-white hover:text-dark transition-all duration-300">
+                                View Project
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h3 class="font-heading text-xl text-dark font-bold uppercase">Roof Repair Detail</h3>
+                        <p class="text-muted text-sm mt-1">Fast, reliable repairs</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Introduction -->
-    <section class="py-16 lg:py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <p class="reveal text-gold text-sm tracking-[0.3em] uppercase mb-8 font-medium">Since 2005</p>
-            <h2 class="reveal stagger-1 font-serif text-3xl lg:text-5xl xl:text-6xl text-forest font-medium leading-tight mb-8">
-                Renovations done right — with experience you can trust.
-            </h2>
-            <p class="reveal stagger-2 text-charcoal/60 text-lg leading-relaxed font-light max-w-2xl mx-auto">
-                From full remodels to complex additions, we specialize in transforming homes with precision, adaptability, and a deep understanding of what our clients truly want.
-            </p>
-        </div>
-    </section>
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-24 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <p class="text-brand text-sm font-bold tracking-[0.2em] uppercase mb-4">Why Ponderosa</p>
+                <h2 class="font-heading text-4xl lg:text-6xl text-dark font-bold uppercase leading-tight mb-6">
+                    Built on Trust &amp; Craftsmanship
+                </h2>
+                <p class="text-muted text-lg leading-relaxed">
+                    We show up on time, communicate clearly, and stand behind every roof we install.
+                </p>
+            </div>
 
-    <!-- Trust section -->
-<section class="py-20 bg-[#F9F7F4] border-y border-black/5">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-
-      <div>
-        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-4">
-          Communication
-        </p>
-        <h3 class="font-serif text-2xl text-forest mb-4">
-          Clear & Transparent
-        </h3>
-        <p class="text-charcoal/60 font-light leading-relaxed">
-          We keep clients informed throughout every stage of the project — no surprises, no disappearing act.
-        </p>
-      </div>
-
-      <div>
-        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-4">
-          Experience
-        </p>
-        <h3 class="font-serif text-2xl text-forest mb-4">
-          Problem Solvers
-        </h3>
-        <p class="text-charcoal/60 font-light leading-relaxed">
-          Renovations rarely go exactly as planned. Our experience allows us to adapt quickly and keep projects moving.
-        </p>
-      </div>
-
-      <div>
-        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-4">
-          Craftsmanship
-        </p>
-        <h3 class="font-serif text-2xl text-forest mb-4">
-          Built With Care
-        </h3>
-        <p class="text-charcoal/60 font-light leading-relaxed">
-          From structural work to finishing details, we approach every home with precision and pride.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-    <!-- Process Section -->
-    <section class="py-24 lg:py-32 bg-white">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="text-gold text-xs tracking-[0.3em] uppercase mb-6 font-medium">Our Process</p>
-            <h2 class="font-serif text-4xl lg:text-5xl text-forest font-medium mb-20">
-                A refined approach from concept to completion.
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="process-card reveal group p-10 rounded-2xl bg-[#F9F7F4] border border-black/5 transition-all duration-700">
-                    <div class="mb-8">
-                        <p class="font-serif text-5xl text-forest/80 group-hover:text-forest transition-colors duration-500">01</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal text-center p-6">
+                    <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-xl mb-4 tracking-wide">Consultation</h3>
-                    <p class="text-charcoal/60 font-light leading-relaxed">
-                        We begin with a detailed conversation to understand your vision, goals, and budget — laying the foundation for a successful build.
-                    </p>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Experienced Team</h3>
+                    <p class="text-muted font-light leading-relaxed">Skilled roofers with years of hands-on experience across every roofing system.</p>
                 </div>
 
-                <div class="process-card reveal stagger-1 group p-10 rounded-2xl bg-[#F9F7F4] border border-black/5 transition-all duration-700">
-                    <div class="mb-8">
-                        <p class="font-serif text-5xl text-forest/80 group-hover:text-forest transition-colors duration-500">02</p>
+                <div class="reveal stagger-1 text-center p-6">
+                    <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-xl mb-4 tracking-wide">Design & Planning</h3>
-                    <p class="text-charcoal/60 font-light leading-relaxed">
-                        Every detail is thoughtfully considered — from layout to materials — ensuring clarity, precision, and alignment before construction begins.
-                    </p>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Fully Insured</h3>
+                    <p class="text-muted font-light leading-relaxed">Complete liability coverage and WCB compliance for your protection and ours.</p>
                 </div>
 
-                <div class="process-card reveal stagger-2 group p-10 rounded-2xl bg-[#F9F7F4] border border-black/5 transition-all duration-700">
-                    <div class="mb-8">
-                        <p class="font-serif text-5xl text-forest/80 group-hover:text-forest transition-colors duration-500">03</p>
+                <div class="reveal stagger-2 text-center p-6">
+                    <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-xl mb-4 tracking-wide">Build & Deliver</h3>
-                    <p class="text-charcoal/60 font-light leading-relaxed">
-                        Our team executes with craftsmanship and discipline, delivering a finished home that reflects your vision down to the finest detail.
-                    </p>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Quality Workmanship</h3>
+                    <p class="text-muted font-light leading-relaxed">Every shingle, seam, and flashing installed with precision and pride.</p>
+                </div>
+
+                <div class="reveal text-center p-6">
+                    <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Fast Response</h3>
+                    <p class="text-muted font-light leading-relaxed">Quick quotes and efficient scheduling so your roof gets the attention it needs.</p>
+                </div>
+
+                <div class="reveal stagger-1 text-center p-6">
+                    <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Free Estimates</h3>
+                    <p class="text-muted font-light leading-relaxed">Clear, honest, no-obligation quotes with no hidden fees or pressure.</p>
+                </div>
+
+                <div class="reveal stagger-2 text-center p-6">
+                    <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-dark font-bold uppercase mb-3">Local Kelowna Company</h3>
+                    <p class="text-muted font-light leading-relaxed">Proudly serving Kelowna and the Okanagan with neighbourly, reliable service.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 lg:py-20 bg-white overflow-hidden">
+    <section id="about" class="py-24 lg:py-32 bg-light overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                <div class="reveal">
-                    <p class="text-gold text-xs tracking-[0.3em] uppercase mb-6 font-medium">About Us</p>
-                    <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-forest font-medium leading-tight mb-10">
-                        Built on experience.<br>Driven by craftsmanship.
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="reveal relative">
+                    <div class="parallax-container aspect-[4/5] overflow-hidden rounded-lg">
+                        <img loading="lazy" src="images/roof-inspection.jpg" alt="Roof inspector assessing a commercial roof" class="parallax-img w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 lg:bottom-8 lg:-right-8 bg-brand text-white p-6 lg:p-8 rounded-lg shadow-xl">
+                        <p class="font-heading text-4xl lg:text-5xl font-bold">10+</p>
+                        <p class="text-white/90 text-sm uppercase tracking-wide">Years Serving Kelowna</p>
+                    </div>
+                </div>
+
+                <div class="reveal lg:pl-8">
+                    <p class="text-brand text-sm font-bold tracking-[0.2em] uppercase mb-4">About Ponderosa Roofing</p>
+                    <h2 class="font-heading text-4xl lg:text-5xl text-dark font-bold uppercase leading-tight mb-6">
+                        Professional Roofers Who Get the Job Done Right
                     </h2>
-                    <div class="space-y-6 text-charcoal/70 font-light leading-relaxed text-lg">
+                    <div class="space-y-5 text-muted font-light leading-relaxed text-lg">
                         <p>
-                            Our strength comes from experience — and the ability to adapt when things don't go as planned.
-                            With decades of combined construction knowledge, Bruce and our team are known for finding solutions others can't.
+                            Ponderosa Roofing is a Kelowna-based roofing contractor built on reliability, hard work, and honest customer service. We don't sell luxury — we deliver roofs that protect your property and hold up to the Okanagan weather.
                         </p>
                         <p>
-                            Clients often tell us they feel relieved knowing their project is in the right hands. That trust is what leads many to expand their projects once work begins — confident that we'll bring their vision to life the right way.
+                            Whether it's a small repair, a full replacement, or a new commercial install, our crew approaches every job with the same focus: quality workmanship, clear communication, and a clean, safe jobsite.
                         </p>
                     </div>
-                    <div class="mt-12">
-                        <a href="about.html" class="inline-block px-10 py-4 border border-forest text-forest hover:bg-forest hover:text-white transition-all duration-500 text-xs tracking-[0.2em] uppercase">Meet the Team</a>
+                    <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="btn-primary inline-block px-10 py-4 bg-brand text-white font-semibold text-sm tracking-[0.15em] uppercase shadow-lg hover:bg-red-700 text-center">
+                            Get Your Free Estimate
+                        </a>
+                        <a href="tel:236-599-0058" class="inline-flex items-center justify-center gap-2 text-dark font-bold uppercase tracking-wide text-sm hover:text-brand transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            Call (236) 599-0058
+                        </a>
                     </div>
-                    <div class="mt-16 pt-12 border-t border-gray-200 grid grid-cols-3 gap-8">
-                        <div class="reveal stagger-1">
-                            <p class="font-serif text-5xl text-forest mb-2">25+</p>
-                            <p class="text-sm text-charcoal/50 tracking-wide font-light">Years Experience</p>
-                        </div>
-                        <div class="reveal stagger-2">
-                            <p class="font-serif text-5xl text-forest mb-2">150+</p>
-                            <p class="text-sm text-charcoal/50 tracking-wide font-light">Projects Completed</p>
-                        </div>
-                        <div class="reveal stagger-3">
-                            <p class="font-serif text-5xl text-forest mb-2">100%</p>
-                            <p class="text-sm text-charcoal/50 tracking-wide font-light">Client Satisfaction</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal relative lg:pl-12">
-                    <div class="parallax-container aspect-[3/4] overflow-hidden">
-                        <img
-  
-  loading="lazy" src="images/Med Cliffside/Exterior/20140505_131025.jpeg" alt="Custom Home Okanagan" class="parallax-img w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-24 lg:py-32 texture-soft">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <p class="text-gold text-xs tracking-[0.3em] uppercase mb-6 font-medium">Client Experience</p>
-            <h2 class="font-serif text-4xl lg:text-5xl text-forest font-medium mb-16">
-                What our clients say
-            </h2>
-
-            <div class="space-y-12">
-                <div class="reveal">
-                    <p class="text-xl text-charcoal/70 font-light leading-relaxed mb-6">
-                        "We felt incredibly fortunate to find Bruce and his team. Their experience and ability to adapt gave us total confidence throughout the entire renovation."
-                    </p>
-                    <p class="text-sm text-charcoal/50 tracking-wide">— Homeowner, Kelowna</p>
-                </div>
-
-                <div class="reveal stagger-1">
-                    <p class="text-xl text-charcoal/70 font-light leading-relaxed mb-6">
-                        "What started as a small project turned into a full transformation — we trusted them completely and kept adding more."
-                    </p>
-                    <p class="text-sm text-charcoal/50 tracking-wide">— Client, Lake Country</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-32 lg:py-40 bg-forest text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-        
+    <section id="contact" class="py-24 lg:py-32 bg-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24">
                 <div class="reveal">
-                    <p class="text-gold text-xs tracking-[0.3em] uppercase mb-6 font-medium">Start Your Project</p>
-                    <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl font-medium leading-tight mb-6">
-                        Start your renovation or addition.
+                    <p class="text-brand text-sm font-bold tracking-[0.2em] uppercase mb-4">Get Started</p>
+                    <h2 class="font-heading text-4xl lg:text-6xl text-white font-bold uppercase leading-tight mb-6">
+                        Request Your Free Estimate
                     </h2>
-                                      
-                    <p class="text-white/60 font-light text-lg mb-12 leading-relaxed max-w-md">
-                        Every great build starts with a conversation. Whether you have detailed plans or just a rough idea, we'd love to hear about your project.
+                    <p class="text-white/70 font-light text-lg mb-12 leading-relaxed max-w-md">
+                        Tell us about your roof and we'll respond quickly with a clear, no-obligation quote. Emergency repairs welcome.
                     </p>
-                    
-                    <div class="space-y-8">
-                        <div class="flex items-center space-x-6 group cursor-pointer">
-                            <div class="w-14 h-14 border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors duration-300">
-                                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                    <div class="space-y-7">
+                        <div class="flex items-center gap-5 group">
+                            <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center group-hover:border-brand transition-colors duration-300">
+                                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                                 </svg>
                             </div>
                             <div>
-                                <p class="text-white/40 text-xs mb-1 uppercase tracking-wider">Phone</p>
-                                <a href="tel:250-864-5774" class="text-xl hover:text-gold transition-colors duration-300 font-light">250-864-5774</a>
+                                <p class="text-white/40 text-xs uppercase tracking-wider mb-1">Phone</p>
+                                <a href="tel:236-599-0058" class="text-xl hover:text-brand transition-colors duration-300 font-semibold">(236) 599-0058</a>
                             </div>
                         </div>
-                        
-                        <div class="flex items-center space-x-6 group cursor-pointer">
-                            <div class="w-14 h-14 border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors duration-300">
-                                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                        <div class="flex items-center gap-5 group">
+                            <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center group-hover:border-brand transition-colors duration-300">
+                                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                                 </svg>
                             </div>
                             <div>
-                                <p class="text-white/40 text-xs mb-1 uppercase tracking-wider">Email</p>
-                                <a href="mailto:info@okanaganconstruction.ca" class="text-xl hover:text-gold transition-colors duration-300 font-light">info@okanaganconstruction.ca</a>
+                                <p class="text-white/40 text-xs uppercase tracking-wider mb-1">Email</p>
+                                <a href="mailto:ponderosaroofing11@gmail.com" class="text-xl hover:text-brand transition-colors duration-300 font-semibold">ponderosaroofing11@gmail.com</a>
                             </div>
                         </div>
-                        
-                        <div class="flex items-center space-x-6 group cursor-pointer">
-                            <div class="w-14 h-14 border border-white/20 flex items-center justify-center group-hover:border-gold transition-colors duration-300">
-                                <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                        <div class="flex items-center gap-5 group">
+                            <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center group-hover:border-brand transition-colors duration-300">
+                                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
                             </div>
                             <div>
-                                <p class="text-white/40 text-xs mb-1 uppercase tracking-wider">Location</p>
-                                <p class="text-xl font-light">Kelowna, BC • Serving the Okanagan</p>
+                                <p class="text-white/40 text-xs uppercase tracking-wider mb-1">Location</p>
+                                <p class="text-xl font-semibold">Kelowna, BC • Serving the Okanagan</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="reveal stagger-1">
-<form 
-    id="contact-form"
-    action="https://api.web3forms.com/submit" 
-    method="POST"
-    class="space-y-6"
->
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                        <input type="hidden" name="access_key" value="c3b2298d-da5f-4af9-8e6b-056a71f0d893">
+                        <input type="hidden" name="subject" value="New Website Lead">
+                        <input type="hidden" name="from_name" value="Ponderosa Roofing Website">
+                        <input type="hidden" name="replyto" value="" id="replyto-field">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-    <!-- Web3Forms Access Key -->
-    <input 
-        type="hidden" 
-        name="access_key" 
-        value="c3b2298d-da5f-4af9-8e6b-056a71f0d893"
-    >
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-white/40 text-xs mb-2 uppercase tracking-wider font-semibold">Name</label>
+                                <input type="text" name="name" required placeholder="Your name" class="w-full bg-white/5 border border-white/10 px-5 py-4 text-white placeholder-white/25 focus:outline-none focus:border-brand transition-colors duration-300 font-light rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block text-white/40 text-xs mb-2 uppercase tracking-wider font-semibold">Email</label>
+                                <input type="email" name="email" required placeholder="your@email.com" class="w-full bg-white/5 border border-white/10 px-5 py-4 text-white placeholder-white/25 focus:outline-none focus:border-brand transition-colors duration-300 font-light rounded-lg">
+                            </div>
+                        </div>
 
-    <!-- Email Subject -->
-<input 
-    type="hidden" 
-    name="subject" 
-    value="New Website Lead"
->
+                        <div>
+                            <label class="block text-white/40 text-xs mb-2 uppercase tracking-wider font-semibold">Phone</label>
+                            <input type="tel" name="phone" placeholder="(236) 555-0000" class="w-full bg-white/5 border border-white/10 px-5 py-4 text-white placeholder-white/25 focus:outline-none focus:border-brand transition-colors duration-300 font-light rounded-lg">
+                        </div>
 
-<input 
-    type="hidden" 
-    name="from_name" 
-    value="Okanagan Inspired Construction Website"
->
+                        <div>
+                            <label class="block text-white/40 text-xs mb-2 uppercase tracking-wider font-semibold">Service Type</label>
+                            <select name="service_type" class="w-full bg-white/5 border border-white/10 px-5 py-4 text-white focus:outline-none focus:border-brand transition-colors duration-300 font-light cursor-pointer rounded-lg">
+                                <option value="" class="text-slate">Select a service</option>
+                                <option value="residential-roofing" class="text-slate">Residential Roofing</option>
+                                <option value="commercial-roofing" class="text-slate">Commercial Roofing</option>
+                                <option value="roof-repairs" class="text-slate">Roof Repairs</option>
+                                <option value="re-roofing" class="text-slate">Re-Roofing</option>
+                                <option value="gutters-drainage" class="text-slate">Gutters &amp; Drainage</option>
+                                <option value="inspection" class="text-slate">Roof Inspection</option>
+                            </select>
+                        </div>
 
-<input 
-    type="hidden" 
-    name="replyto" 
-    value="" 
-    id="replyto-field"
->
+                        <div>
+                            <label class="block text-white/40 text-xs mb-2 uppercase tracking-wider font-semibold">Message</label>
+                            <textarea name="message" rows="5" required placeholder="Tell us about your roof..." class="w-full bg-white/5 border border-white/10 px-5 py-4 text-white placeholder-white/25 focus:outline-none focus:border-brand transition-colors duration-300 font-light resize-none rounded-lg"></textarea>
+                        </div>
 
-    <!-- Spam Protection -->
-    <input 
-        type="checkbox" 
-        name="botcheck" 
-        class="hidden" 
-        style="display: none;"
-    >
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        <div>
-            <label class="block text-white/40 text-xs mb-3 uppercase tracking-wider">
-                Name
-            </label>
-
-            <input 
-                type="text"
-                name="name"
-                required
-                placeholder="Your name"
-                class="w-full bg-white/5 border border-white/10 px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-gold transition-colors duration-300 font-light"
-            >
+                        <button type="submit" class="w-full bg-brand text-white py-5 text-sm tracking-[0.15em] uppercase font-bold hover:bg-red-700 transition-all duration-300 rounded-lg mt-2">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div>
-            <label class="block text-white/40 text-xs mb-3 uppercase tracking-wider">
-                Email
-            </label>
-
-            <input 
-                type="email"
-                name="email"
-                required
-                placeholder="your@email.com"
-                class="w-full bg-white/5 border border-white/10 px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-gold transition-colors duration-300 font-light"
-            >
-        </div>
-
-    </div>
-
-    <div>
-        <label class="block text-white/40 text-xs mb-3 uppercase tracking-wider">
-            Project Type
-        </label>
-
-        <select 
-            name="project_type"
-            class="w-full bg-white/5 border border-white/10 px-5 py-4 text-white focus:outline-none focus:border-gold transition-colors duration-300 font-light cursor-pointer"
-        >
-            <option value="" class="text-charcoal">
-                Select a service
-            </option>
-
-            <option value="new-build" class="text-charcoal">
-                New Custom Build
-            </option>
-
-            <option value="renovation" class="text-charcoal">
-                Major Renovation
-            </option>
-
-            <option value="addition" class="text-charcoal">
-                Home Addition
-            </option>
-
-            <option value="commercial" class="text-charcoal">
-                Commercial Project
-            </option>
-        </select>
-    </div>
-
-    <div>
-        <label class="block text-white/40 text-xs mb-3 uppercase tracking-wider">
-            Message
-        </label>
-
-        <textarea 
-            name="message"
-            rows="5"
-            required
-            placeholder="Tell us about your project..."
-            class="w-full bg-white/5 border border-white/10 px-5 py-4 text-white placeholder-white/20 focus:outline-none focus:border-gold transition-colors duration-300 font-light resize-none"
-        ></textarea>
-    </div>
-
-    <button 
-        type="submit"
-        class="w-full bg-gold text-forest py-5 text-xs tracking-[0.2em] uppercase font-medium hover:bg-white transition-all duration-500 mt-4"
-    >
-        Send Message
-    </button>
-
-</form>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-charcoal text-white py-16 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-8 md:mb-0 text-center md:text-left flex flex-col items-center md:items-start">
-                <img src="images/logo.png" alt="Okanagan Inspired Construction Logo" class="h-16 w-auto mb-4 opacity-90">
+    <footer class="bg-[#070b14] text-white py-14 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                <img src="images/logo.png" alt="Ponderosa Roofing Logo" class="h-14 w-auto mb-4 opacity-90">
                 <p class="text-white/40 text-sm font-light tracking-wide">
-                    CHBA Member • Licensed • Insured
+                    Licensed • Insured • Local Kelowna Roofers
                 </p>
             </div>
             <div class="text-center md:text-right">
                 <nav class="mb-4">
-                    <a href="index.html" class="text-white/40 hover:text-gold text-sm mx-3 transition-colors duration-300">Home</a>
-                    <a href="about.html" class="text-white/40 hover:text-gold text-sm mx-3 transition-colors duration-300">About</a>
-                    <a href="faq.html" class="text-white/40 hover:text-gold text-sm mx-3 transition-colors duration-300">FAQ</a>
-                    <a href="#contact" class="text-white/40 hover:text-gold text-sm mx-3 transition-colors duration-300">Contact</a>
+                    <a href="index.html" class="text-white/40 hover:text-brand text-sm mx-3 transition-colors duration-300 uppercase font-semibold">Home</a>
+                    <a href="index.html#services" class="text-white/40 hover:text-brand text-sm mx-3 transition-colors duration-300 uppercase font-semibold">Services</a>
+                    <a href="index.html#projects" class="text-white/40 hover:text-brand text-sm mx-3 transition-colors duration-300 uppercase font-semibold">Projects</a>
+                    <a href="index.html#contact" class="text-white/40 hover:text-brand text-sm mx-3 transition-colors duration-300 uppercase font-semibold">Contact</a>
                 </nav>
-                <p class="text-white/40 text-sm mb-2 font-light">250-864-5774 • info@okanaganconstruction.ca</p>
-                <p class="text-white/20 text-xs font-light mb-2">
-                    &copy; 2026 Okanagan Inspired Construction. All rights reserved.
+                <p class="text-white/40 text-sm mb-2 font-light">(236) 599-0058 • ponderosaroofing11@gmail.com</p>
+                <p class="text-white/20 text-xs font-light mb-1">
+                    &copy; 2026 Ponderosa Roofing. All rights reserved.
                 </p>
                 <p class="text-white/20 text-[11px] font-light tracking-wide">
-                    Website designed & maintained by
-                    <a href="https://truenorthwebsites.com" target="_blank" class="hover:text-gold transition-colors duration-300">
-                        TrueNorth Websites
-                    </a>
+                    Website designed &amp; maintained by
+                    <a href="https://truenorthwebsites.com" target="_blank" class="hover:text-brand transition-colors duration-300">TrueNorth Websites</a>
                 </p>
             </div>
         </div>
@@ -1153,23 +954,21 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button>
-        
-        <button onclick="changeImage(-1)" class="absolute left-8 text-white/50 hover:text-white transition-colors duration-300 hidden md:block">
-            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+        <button onclick="changeImage(-1)" class="absolute left-4 lg:left-8 text-white/50 hover:text-white transition-colors duration-300 hidden md:block">
+            <svg class="w-10 h-10 lg:w-12 lg:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
-        
-        <button onclick="changeImage(1)" class="absolute right-8 text-white/50 hover:text-white transition-colors duration-300 hidden md:block">
-            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+        <button onclick="changeImage(1)" class="absolute right-4 lg:right-8 text-white/50 hover:text-white transition-colors duration-300 hidden md:block">
+            <svg class="w-10 h-10 lg:w-12 lg:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path>
             </svg>
         </button>
-        
+
         <div class="lightbox-inner">
-            <img
-  
-  loading="lazy" id="lightbox-img" src="" alt="" class="w-full h-full object-contain">
+            <img loading="lazy" id="lightbox-img" src="" alt="" class="w-full h-full object-contain rounded-lg">
             <p id="lightbox-caption" class="text-center text-white/60 mt-6 font-light tracking-wide"></p>
         </div>
     </div>
@@ -1186,7 +985,6 @@
             touchMultiplier: 2,
             infinite: false,
         });
-   
 
         function raf(time) {
             lenis.raf(time);
@@ -1197,8 +995,12 @@
         gsap.registerPlugin(ScrollTrigger);
 
         const projectImages = [
-            { src: "images/Lakeside Getaway/After - prof web/Exterior/Draper-exterior-5.jpg", caption: "Lakeside Getaway • Full Renovation & Addition" },
-            { src: "images/Med Cliffside/Exterior/show3993446.jpg", caption: "Mediterranean Cliffside • Custom Luxury Build" }
+            { src: "images/roof-project-1.jpg", caption: "Historic Home Re-Roof • Complete tear-off & replacement" },
+            { src: "images/roof-house-after.jpg", caption: "Shingle Installation • New architectural shingles" },
+            { src: "images/roof-shingles-close.jpg", caption: "Premium Shingle Roof • Detailed craftsmanship" },
+            { src: "images/roof-inspection.jpg", caption: "Commercial Inspection • Safety-first assessment" },
+            { src: "images/roof-completed-2.jpg", caption: "Completed Residential Roof • Full replacement & cleanup" },
+            { src: "images/roof-worker.jpg", caption: "Roof Repair Detail • Fast, reliable repairs" }
         ];
 
         let currentImageIndex = 0;
@@ -1250,20 +1052,14 @@
 
             slider.addEventListener('mousedown', startDrag);
             window.addEventListener('mouseup', stopDrag);
-            slider.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
-                moveSlider(e.clientX);
-            });
+            slider.addEventListener('mousemove', (e) => { if (!isDragging) return; moveSlider(e.clientX); });
             slider.addEventListener('touchstart', () => isDragging = true);
             window.addEventListener('touchend', () => isDragging = false);
-            slider.addEventListener('touchmove', (e) => {
-                moveSlider(e.touches[0].clientX);
-            });
+            slider.addEventListener('touchmove', (e) => { moveSlider(e.touches[0].clientX); });
         });
 
         const menuToggle = document.getElementById('menu-toggle');
         const menuOverlay = document.getElementById('menu-overlay');
-        const logoText = document.getElementById('logo-text');
         const hamburgerLines = [
             document.getElementById('hamburger-line'),
             document.getElementById('hamburger-line-2'),
@@ -1275,8 +1071,7 @@
             menuOverlay.classList.add('visible-menu');
             menuToggle.classList.add('active');
             lenis.stop();
-            hamburgerLines.forEach(line => line.classList.remove('bg-forest'));
-            hamburgerLines.forEach(line => line.classList.add('bg-white'));
+            hamburgerLines.forEach(line => { line.classList.remove('bg-dark'); line.classList.add('bg-white'); });
         }
 
         function closeMenu() {
@@ -1288,38 +1083,25 @@
         }
 
         menuToggle.addEventListener('click', () => {
-            if (menuOverlay.classList.contains('hidden-menu')) {
-                openMenu();
-            } else {
-                closeMenu();
-            }
+            if (menuOverlay.classList.contains('hidden-menu')) openMenu();
+            else closeMenu();
         });
 
         const navbar = document.getElementById('navbar');
 
         function updateHeaderColor() {
             const currentScroll = window.pageYOffset;
-            if (currentScroll > 100) {
-                navbar.classList.add('bg-white/90', 'shadow-sm', 'scrolled');
+            if (currentScroll > 80) {
+                navbar.classList.add('bg-white/95', 'shadow-md', 'scrolled');
                 navbar.classList.remove('bg-transparent');
-                logoText.classList.remove('text-white');
-                logoText.classList.add('text-forest');
                 if (!menuOverlay.classList.contains('visible-menu')) {
-                    hamburgerLines.forEach(line => {
-                        line.classList.remove('bg-white');
-                        line.classList.add('bg-forest');
-                    });
+                    hamburgerLines.forEach(line => { line.classList.remove('bg-white'); line.classList.add('bg-dark'); });
                 }
             } else {
-                navbar.classList.remove('bg-white/90', 'shadow-sm', 'scrolled');
+                navbar.classList.remove('bg-white/95', 'shadow-md', 'scrolled');
                 navbar.classList.add('bg-transparent');
-                logoText.classList.add('text-white');
-                logoText.classList.remove('text-forest');
                 if (!menuOverlay.classList.contains('visible-menu')) {
-                    hamburgerLines.forEach(line => {
-                        line.classList.add('bg-white');
-                        line.classList.remove('bg-forest');
-                    });
+                    hamburgerLines.forEach(line => { line.classList.add('bg-white'); line.classList.remove('bg-dark'); });
                 }
             }
         }
@@ -1331,7 +1113,7 @@
             parallaxElements.forEach(el => {
                 const container = el.closest('.parallax-container');
                 const rect = container.getBoundingClientRect();
-                const speed = 0.02;
+                const speed = 0.03;
                 if (rect.top < window.innerHeight && rect.bottom > 0) {
                     const yPos = (rect.top * speed);
                     el.style.transform = `translateY(${yPos}px) scale(1.08)`;
@@ -1341,12 +1123,7 @@
 
         window.addEventListener('scroll', handleParallax, { passive: true });
 
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1356,68 +1133,47 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal').forEach((element) => {
-            observer.observe(element);
-        });
+        document.querySelectorAll('.reveal').forEach((element) => { observer.observe(element); });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeLightbox();
-                closeMenu();
-            }
-            if (e.key === 'ArrowLeft' && document.getElementById('lightbox').classList.contains('visible')) {
-                changeImage(-1);
-            }
-            if (e.key === 'ArrowRight' && document.getElementById('lightbox').classList.contains('visible')) {
-                changeImage(1);
-            }
+            if (e.key === 'Escape') { closeLightbox(); closeMenu(); }
+            if (e.key === 'ArrowLeft' && document.getElementById('lightbox').classList.contains('visible')) changeImage(-1);
+            if (e.key === 'ArrowRight' && document.getElementById('lightbox').classList.contains('visible')) changeImage(1);
         });
 
         document.getElementById('lightbox').addEventListener('click', (e) => {
-            if (e.target === e.currentTarget) {
-                closeLightbox();
+            if (e.target === e.currentTarget) closeLightbox();
+        });
+
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            document.getElementById('replyto-field').value = form.querySelector('input[name="email"]').value;
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, { method: 'POST', body: formData });
+                if (response.ok) {
+                    alert('Thank you! We will be in touch shortly.');
+                    form.reset();
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                alert('Something went wrong. Please try again.');
             }
         });
-const form = document.getElementById('contact-form');
 
-form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    document.getElementById('replyto-field').value = form.querySelector('input[name="email"]').value;
-
-    const formData = new FormData(form);
-
-    try {
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData
-        });
-
-        if (response.ok) {
-            alert('Thank you! We will be in touch shortly.');
-            form.reset();
-        } else {
-            alert('Something went wrong. Please try again.');
-        }
-
-    } catch (error) {
-        alert('Something went wrong. Please try again.');
-    }
-});
-                window.addEventListener('load', () => {
+        window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('logo-img').classList.add('loaded');
                 document.querySelectorAll('.hero-from-top').forEach(el => el.classList.add('loaded'));
-            }, 900);
+            }, 600);
             setTimeout(() => {
                 document.querySelectorAll('.hero-from-bottom').forEach(el => el.classList.add('loaded'));
-            }, 1700);
+            }, 1200);
             setTimeout(() => {
                 document.getElementById('scroll-indicator').style.opacity = '1';
-            }, 2300);
-            setTimeout(() => {
-                document.querySelector('.hero-whisper')?.classList.add('loaded');
-            }, 3000);
+            }, 2000);
         });
     </script>
 </body>
