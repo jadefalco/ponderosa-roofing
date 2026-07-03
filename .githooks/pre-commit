@@ -1,7 +1,0 @@
-#!/bin/sh
-# Auto-regenerate sitemap before every commit
-
-node scripts/generate-sitemap.js
-
-# Stage the regenerated sitemap if it changed
-git add sitemap.xml
